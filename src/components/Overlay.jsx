@@ -55,8 +55,8 @@ export const Overlay = () => {
           </p>
           <ul className="leading-9">
             <li>ReactJS</li>
-            <li>React Native</li>
-            <li>VueJS</li>
+            {/* <li>React Native</li> */}
+            {/* <li>VueJS</li> */}
             <li>Tailwind</li>
           </ul>
           <p className="mt-3">
@@ -64,8 +64,8 @@ export const Overlay = () => {
           </p>
           <ul className="leading-9">
             <li>NodeJS</li>
-            <li>tRPC</li>
-            <li>NestJS</li>
+            {/* <li>tRPC</li> */}
+            {/* <li>NestJS</li> */}
             <li>PostgreSQL</li>
           </ul>
           <p className="animate-bounce  mt-6">↓</p>
@@ -78,7 +78,7 @@ export const Overlay = () => {
             I&lsquo;m very expensive but you won&lsquo;t regret it
           </p>
           <p className="mt-6 p-3 bg-slate-200 rounded-lg">
-            📞 <a href="tel:(+42) 4242-4242-424242">(+42) 4242-4242-424242</a>
+            📞 <a href=""></a>
           </p>
         </Section>
       </div>
