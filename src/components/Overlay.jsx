@@ -1,6 +1,8 @@
 import { Scroll, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useState } from "react";
+import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 
 const Section = (props) => {
   return (
@@ -19,6 +21,12 @@ const Section = (props) => {
   );
 };
 
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+  right: PropTypes.bool,
+  opacity: PropTypes.number,
+};
+
 export const Overlay = () => {
   const scroll = useScroll();
   const [opacityFirstSection, setOpacityFirstSection] = useState(1);
@@ -34,16 +42,19 @@ export const Overlay = () => {
     <Scroll html>
       <div className="w-screen">
         <Section opacity={opacityFirstSection}>
-          <h1 className="font-semibold font-serif text-2xl:">
+          <h1 className="font-semibold font-serif text-2xl">
             Hello I&lsquo;m Rahul
           </h1>
-          <p className="text-gray-500">Welcome to my beautiful portpolio</p>
+          <p className="text-gray-500 mb-1">
+            Welcome to my beautiful portpolio
+          </p>
+          <span>I know:</span>
           <ul className="leading-9">
             <li>🧑‍💻 How to code</li>
             <li>🧑‍🏫 How to learn</li>
             <li>📦 How to deliver</li>
           </ul>
-          <p className="animate-bounce  mt-6">↓</p>
+          <p className="animate-bounce mt-6">↓</p>
         </Section>
         <Section right opacity={opacitySecondSection}>
           <h1 className="font-semibold font-serif text-2xl">
@@ -55,8 +66,8 @@ export const Overlay = () => {
           </p>
           <ul className="leading-9">
             <li>ReactJS</li>
-            {/* <li>React Native</li> */}
-            {/* <li>VueJS</li> */}
+            <li>Next JS</li>
+            <li>ThreeJs</li>
             <li>Tailwind</li>
           </ul>
           <p className="mt-3">
@@ -64,8 +75,8 @@ export const Overlay = () => {
           </p>
           <ul className="leading-9">
             <li>NodeJS</li>
-            {/* <li>tRPC</li> */}
-            {/* <li>NestJS</li> */}
+            <li>Karavedl</li>
+            <li>Python</li>
             <li>PostgreSQL</li>
           </ul>
           <p className="animate-bounce  mt-6">↓</p>
@@ -77,9 +88,22 @@ export const Overlay = () => {
           <p className="text-gray-500">
             I&lsquo;m very expensive but you won&lsquo;t regret it
           </p>
-          <p className="mt-6 p-3 bg-slate-200 rounded-lg">
-            📞 <a href=""></a>
-          </p>
+          <div className="mt-6 p-3 bg-slate-200 rounded-lg">
+            📞 <a href="tel:+919447434618" className="mx-3 text-lg">+919447434618</a>
+            <img
+              src="../copy-regular.svg"
+              style={{ height: "0.55cm" }}
+              className="float-right p-0 m-0 cursor-pointer"
+              alt="copy"
+              //add onClick event to copy the number
+              onClick={() => {
+                navigator.clipboard.writeText("+919447434618");
+                toast.success('Number copied to clipboard',{
+                  position: 'top-right',
+                })
+              }}
+            />
+          </div>
         </Section>
       </div>
     </Scroll>
